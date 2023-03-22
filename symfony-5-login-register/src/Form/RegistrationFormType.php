@@ -51,6 +51,8 @@ class RegistrationFormType extends AbstractType
             ->add('couleurCheveux', TextType::class)
             ->add('poids', TextType::class)
             ->add('description', TextType::class)
+            ->add('photo', TextType::class)
+
         ;
     }
 

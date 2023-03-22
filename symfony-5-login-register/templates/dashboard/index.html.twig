@@ -21,7 +21,6 @@
     img {
         border-radius: 100%;
         width: 150px;
-        
         }
 </style>
 
@@ -30,10 +29,18 @@
     <ul>
         {% for user in users %}
             <li id="card">
-            
+
             {{ user.pseudo }} 
             <br>
             <img src="{{ user.photo }}" alt=""> 
+            <br>
+            {{ user.taille }} 
+            <br>
+            {{ user.couleurCheveux }} 
+            <br>
+            {{ user.poids }} 
+            <br>
+            {{ user.description }} 
             <br>
 
             </li>
