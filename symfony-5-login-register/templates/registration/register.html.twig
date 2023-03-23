@@ -2,20 +2,97 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-    <h1>Register</h1>
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{% endblock %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-        {{ form_row(registrationForm.pseudo) }}
-        {{ form_row(registrationForm.taille) }}
-        {{ form_row(registrationForm.couleurCheveux) }}
-        {{ form_row(registrationForm.poids) }}
-        {{ form_row(registrationForm.description) }}
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+{% block body %}
+<style>
+    body{
+        background-color: rgb(228, 183, 182);
+    }
+    .container{
+        margin-top : 7%
+    }
+</style>    
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">R@ncontre</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/home">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/register">S'enregistrer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Tableau de bord</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>S'enregistrer</h1>
+            {{ form_start(registrationForm) }}
+            <div class="form-group">
+                {{ form_label(registrationForm.email) }}
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(registrationForm.plainPassword, 'Password') }}
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(registrationForm.pseudo) }}
+                {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(registrationForm.taille) }}
+                {{ form_widget(registrationForm.taille, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(registrationForm.couleurCheveux) }}
+                {{ form_widget(registrationForm.couleurCheveux, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(registrationForm.poids) }}
+                {{ form_widget(registrationForm.poids, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(registrationForm.description) }}
+                {{ form_widget(registrationForm.description, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(registrationForm.photo) }}
+                {{ form_widget(registrationForm.photo, {'attr': {'class': 'form-control'}}) }}
+            </div>
+             <div class="form-group form-check">
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                {{ form_label(registrationForm.agreeTerms, 'I agree to the terms and conditions', {'label_attr':
+                {'class': 'form-check-label'}}) }}
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 {% endblock %}
